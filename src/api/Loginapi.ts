@@ -1,6 +1,6 @@
 import axios from 'axios'
 import type { AxiosRequestConfig, AxiosResponse, AxiosInstance } from 'axios'
-import { string } from 'yup'
+
 // 獲取瀏覽器的介面地址
 const baseUrl = window.location.origin
 axios.defaults.baseURL = baseUrl
@@ -45,6 +45,47 @@ export function get<T>(url: string, config?: AxiosRequestConfig): Promise<T> {
     axios.get<T>(url, config).then((res) => {
       resolve(res.data)
     })
+      .catch((err) => {
+        reject(err)
+      })
+  })
+}
+
+// post請求
+
+export function post<T>(url: string, data?: any, config?: AxiosRequestConfig): Promise<T> {
+  return new Promise((resolve) => {
+    axios.post<T>(url, data, config).then((res) => {
+      resolve(res.data)
+    })
+      .catch((err) => {
+        resolve(err.response?.data)
+      })
+  })
+}
+
+// put請求
+
+export function put<T>(url: string, data?: any, config?: AxiosRequestConfig): Promise<T> {
+  return new Promise((resolve, reject) => {
+    axios.put<T>(url, data, config)
+      .then((res) => {
+        resolve(res.data)
+      })
+      .catch((err) => {
+        reject(err)
+      })
+  })
+}
+
+// delete請求
+
+export function del<T>(url: string, config?: AxiosRequestConfig): Promise<T> {
+  return new Promise((resolve, reject) => {
+    axios.delete<T>(url, config)
+      .then((res) => {
+        resolve(res.data)
+      })
       .catch((err) => {
         reject(err)
       })
