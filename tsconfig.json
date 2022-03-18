@@ -17,7 +17,10 @@
     "paths": {
       "@/*": [
         "src/*"
-      ]
+      ],
+      "/THEME/*": [
+        "src/utils/*",
+        "src/views/*"]
     },
     "lib": [
       "esnext",
