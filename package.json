@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@vueuse/core": "^7.5.3",
+    "@vueuse/integrations": "^8.1.2",
     "axios": "^0.24.0",
     "core-js": "^3.6.5",
     "v-lazy-image": "^2.0.1",

@@ -17,3 +17,9 @@ export default defineComponent({
   }
 })
 </script>
+
+<style lang="scss" scoped>
+:deep(.header) {
+  @import '../style/components/header.scss';
+}
+</style>
