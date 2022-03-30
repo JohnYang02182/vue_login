@@ -18,8 +18,9 @@
 </template>
 <script lang="ts">
 import { defineComponent, reactive } from 'vue'
-import { Field, ErrorMessage } from 'vee-validate'
+import { Field, ErrorMessage, configure, useForm } from 'vee-validate'
 import * as yup from 'yup'
+import { getUserCookie } from '../utils/cookies'
 export default defineComponent({
   name: 'LoginModel',
   components: {

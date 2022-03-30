@@ -80,7 +80,7 @@ export default createStore({
   },
   actions: {
     async login({ commit, dispatch, state }, loginFormData: LoginFormData) {
-      const { account, password, isRemember } = loginFormData
+      const { account, password } = loginFormData
       try {
         const response: isLogin = await loginApi({
           account: account,
