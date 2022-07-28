@@ -13,7 +13,7 @@ import {
   setUserCookie
 } from '@/utils/cookies'
 export interface LoginFormData {
-  account: string
+  username: string
   password: string
   isRemember?: boolean
 }
@@ -49,14 +49,14 @@ export function isNullOrUnDef(value: unknown): value is null | undefined {
 }
 
 export interface UserState {
-  account: string | undefined
+  username: string | undefined
   token: string | null
   isLogin: boolean
   isRemember: boolean
 }
 
 const initialState: UserState = {
-  account: getUserCookie(),
+  username: getUserCookie(),
   token: getToken(),
   isLogin: !isNullOrUnDef(getToken()) || !isNullOrUnDef(getUserCookie()),
   isRemember: getIsRememberCookie() ?? false
@@ -68,8 +68,8 @@ export default createStore({
     SET_TOKEN(state: UserState, token: string) {
       state.token = token
     },
-    SET_ACCOUNT(state: UserState, account: string) {
-      state.account = account
+    SET_ACCOUNT(state: UserState, username: string) {
+      state.username = username
     },
     SET_IS_LOGIN(state: UserState, isLogin: boolean) {
       state.isLogin = isLogin
@@ -80,16 +80,16 @@ export default createStore({
   },
   actions: {
     async login({ commit, dispatch, state }, loginFormData: LoginFormData) {
-      const { account, password } = loginFormData
+      const { username, password } = loginFormData
       try {
         const response: isLogin = await loginApi({
-          account: account,
-          password: password
+          UserName: username,
+          Password: password
         })
         const res = response
         commit('SET_IS_LOGIN', true)
         dispatch('SET_TOKEN', res.token)
-        dispatch('SET_ACCOUNT', res.account)
+        dispatch('SET_ACCOUNT', res.UserName)
         commit('SET_IS_REMEMBER', true)
       } catch (e) {
         console.log('loginfail')

@@ -29,11 +29,11 @@ export default defineComponent({
   },
   setup() {
     const validationSchema = yup.object({
-      account: yup.string().required('這是必填欄位'),
+      username: yup.string().required('這是必填欄位'),
       password: yup.string().required('這是必填欄位')
     })
     const getUserValue = reactive({
-      account: '',
+      username: '',
       password: ''
     })
     return {

@@ -19,7 +19,7 @@
     "v-lazy-image": "^2.0.1",
     "vee-validate": "^4.5.7",
     "vite": "^2.8.4",
-    "vue": "^3.0.0",
+    "vue": "^3.2.31",
     "vue-axios": "^3.4.0",
     "vue-final-modal": "^3.4.3",
     "vue-router": "^4.0.0-0",

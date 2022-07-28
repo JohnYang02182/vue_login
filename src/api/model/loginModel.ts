@@ -1,6 +1,6 @@
 export interface LoginData {
-  account: string
-  password: string
+  UserName: string
+  Password: string
 }
 
 export interface getLoginInfo {
@@ -10,7 +10,7 @@ export interface getLoginInfo {
 }
 
 export interface isLogin {
-  account: string
+  UserName: string
   token: string
   message: string
 }
