@@ -1,17 +1,9 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
-  <router-view />
+  <Home />
 </template>
-<script lang="ts">
-import { defineComponent } from 'vue'
-export default defineComponent({
-
-})
+<script setup lang="ts">
+import Home from './views/Home.vue'
 </script>
-
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
