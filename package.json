@@ -4,6 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview",
     "format": "prettier --write ./src"
   },
   "dependencies": {
