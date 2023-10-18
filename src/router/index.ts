@@ -2,12 +2,15 @@ import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router"
 
 const Home = () => import('../views/Home.vue')
 const LoginSuc = () => import('../views/LoginSuc.vue')
-
+const BlankLayout = () => import('../layout/BlankLayout.vue')
 export const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
     name: "Home",
-    component: Home
+    component: Home,
+    meta: {
+      login: true
+    }
   },
   {
     path: "/LoginSuc",

@@ -5,7 +5,11 @@
 import Home from './views/Home.vue'
 </script>
 <style lang="scss">
+body {
+  margin: 0;
+}
 #app {
+  position: relative;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -15,7 +19,6 @@ import Home from './views/Home.vue'
 
 #nav {
   padding: 30px;
-
   a {
     font-weight: bold;
     color: #2c3e50;

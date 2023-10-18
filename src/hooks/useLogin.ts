@@ -2,7 +2,7 @@ import axios from 'axios'
 import type { AxiosRequestConfig, AxiosResponse, AxiosInstance } from 'axios'
 import { post, get } from '../api/Loginapi'
 import { useUserState } from '../store/index'
-export interface subParameter {
+export interface subParameter extends Record<string | number | symbol, any> {
   account: string,
   password: string
 }

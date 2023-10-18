@@ -1,4 +1,4 @@
-import { useCookies } from '@vueuse/integrations/useCookies'
+import { useCookies } from '@vueuse/integrations'
 import { string } from 'yup'
 
 const cookies = useCookies()

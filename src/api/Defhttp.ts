@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { showStatus } from './Status'
-import type { AxiosRequestConfig, AxiosResponse, AxiosInstance } from 'axios'
+import type { AxiosRequestConfig, AxiosResponse, AxiosInstance, InternalAxiosRequestConfig } from 'axios'
 import { HttpProxy } from 'vite'
 
 // 獲取瀏覽器的介面地址
@@ -9,8 +9,7 @@ axios.defaults.baseURL = baseUrl
 axios.defaults.timeout = 50000
 axios.defaults.withCredentials = true
 // 請求攔截
-axios.interceptors.request.use(
-  (config: AxiosRequestConfig) => {
+axios.interceptors.request.use((config: InternalAxiosRequestConfig) => {
     if (config.headers) {
       if (localStorage && localStorage.getItem('token')) {
         const token = localStorage.getItem('token')
@@ -18,8 +17,8 @@ axios.interceptors.request.use(
         token && (config.headers!.Authorization = token)
       }
       config.headers['x-api-key'] = 'PMAK-61dffcf60782c421eedf59c5-6ef667f40b94a47550dc80d2d48e5b82f3'
-      return config
     }
+    return config
   },
   (error) => {
     console.log(error)
@@ -36,6 +35,7 @@ axios.interceptors.response.use((res: AxiosResponse) => {
     } else {
       console.log(`${showTip}`)
       window.location.href = '/#/login'
+      return Promise.resolve(res)
     }
   } else {
     console.log(`${showTip}`)
