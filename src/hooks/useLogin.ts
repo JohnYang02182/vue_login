@@ -2,7 +2,7 @@ import axios from 'axios'
 import type { AxiosRequestConfig, AxiosResponse, AxiosInstance } from 'axios'
 import { post, get } from '../api/Loginapi'
 import { useUserState } from '../store/index'
-export interface subParameter extends Record<string | number | symbol, any> {
+export interface subParameter {
   account: string,
   password: string
 }
@@ -15,7 +15,7 @@ interface recPara {
 
 
 
-export const loginDealer = async (param: subParameter) => {
+export const loginDealer = async (param: subParameter | Record<string | number | symbol, unknown>) => {
   const userStore = useUserState()
   let res = await post<recPara>('http://localhost:3000/api/login',param)
   if(res.isLogin === true) {

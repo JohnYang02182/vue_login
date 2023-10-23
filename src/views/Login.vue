@@ -46,7 +46,7 @@ const getUserValue = reactive({
 //     console.log('failed =', res)
 //   }
 // })
-async function onSubmit(values: any){
+async function onSubmit(values: subParameter | Record<string | number | symbol, unknown>) {
   console.log('values ',values)
   let res = await loginDealer(values)
   if(res.isLogin === true) {
